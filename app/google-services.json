@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "726771041332",
+    "firebase_url": "https://workoutproject-59e18-default-rtdb.firebaseio.com",
+    "project_id": "workoutproject-59e18",
+    "storage_bucket": "workoutproject-59e18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726771041332:android:d45a23c21b67a2c8abb661",
+        "android_client_info": {
+          "package_name": "com.example.test"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqSW07quN53e6Jz-XGnHmV6RGjsNbvNQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
