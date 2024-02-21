@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.test.databinding.ActivityMainBinding
 import com.example.test.ui.login.LoginActivity
 import android.content.Intent
-import com.example.test.ui.settings.Settings
+import com.example.test.ui.settings.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -62,22 +62,21 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.action_settings -> {
-                openSettings()
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
                 true
             }
             R.id.action_login -> {
-                openLogin()
+                val intent = Intent(this,LoginActivity::class.java)
+                startActivity(intent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
     }
-    private fun openLogin(){
-        val intent = Intent(this,LoginActivity::class.java)
-        startActivity(intent)
-    }
-    private fun openSettings(){
-       val intent = Intent(this, Settings::class.java)
-        startActivity(intent)
-    }
+//    private fun openLogin(){
+//        val intent = Intent(this,LoginActivity::class.java)
+//        startActivity(intent)
+//    }
+
 }

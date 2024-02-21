@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout2"
@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
     android:theme="@style/ThemeOverlay.Test.FullscreenContainer"
-    tools:context=".ui.settings.Settings">
+    tools:context=".ui.settings.SettingsActivity">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -35,10 +35,10 @@
 
 
             <Button
-                android:background="@drawable/roundedstyle"
                 android:id="@+id/Metric"
                 android:layout_width="408dp"
                 android:layout_height="93dp"
+                android:background="@drawable/roundedstyle"
                 android:text="Metric"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -55,8 +55,32 @@
                 app:layout_constraintTop_toBottomOf="@+id/Metric"
                 tools:layout_editor_absoluteX="0dp" />
 
+            <Button
+                android:id="@+id/Profile"
+                android:layout_width="408dp"
+                android:layout_height="93dp"
+                android:background="@drawable/roundedstyle"
+                android:text="Profile"
+                app:layout_constraintTop_toBottomOf="@+id/DarkMode"/>
+
+            <Button
+                android:id="@+id/Notifications"
+                android:layout_width="408dp"
+                android:layout_height="93dp"
+                android:background="@drawable/roundedstyle"
+                android:text="Notifications"
+                app:layout_constraintTop_toBottomOf="@+id/Profile"/>
+
+            <Button
+                android:id="@+id/BuildInfo"
+                android:layout_width="408dp"
+                android:layout_height="93dp"
+                android:background="@drawable/roundedstyle"
+                android:text="Build Information"
+                app:layout_constraintTop_toBottomOf="@+id/Notifications"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
