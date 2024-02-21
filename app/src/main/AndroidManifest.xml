@@ -13,9 +13,9 @@
         android:theme="@style/Theme.Test"
         tools:targetApi="31">
         <activity
-            android:name=".ui.settings.Settings"
+            android:name=".ui.settings.SettingsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:exported="false"
+            android:exported="true"
             android:label="@string/title_activity_settings"
             android:theme="@style/Theme.Test.Fullscreen" />
         <activity
