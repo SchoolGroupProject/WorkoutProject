@@ -23,64 +23,48 @@
         android:fitsSystemWindows="true"
         tools:ignore="MissingConstraints">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="@style/Widget.Theme.Test.ButtonBar.Fullscreen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="NotSibling,UselessParent">
+        <Button
+            android:id="@+id/Metric"
+            android:layout_width="408dp"
+            android:layout_height="91dp"
+            android:backgroud="@drawable/roundedstyle"
+            android:text="Metric" />
 
+        <Button
+            android:id="@+id/DarkMode"
+            style="@style/TestStyle"
+            android:layout_width="408dp"
+            android:layout_height="91dp"
+            android:backgroud="@drawable/roundedstyle"
+            android:text="Dark Mode"
+            tools:layout_editor_absoluteY="91dp" />
 
-            <Button
-                android:id="@+id/Metric"
-                android:layout_width="408dp"
-                android:layout_height="93dp"
-                android:background="@drawable/roundedstyle"
-                android:text="Metric"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/Profile"
+            android:layout_width="408dp"
+            android:layout_height="91dp"
+            android:backgroud="@drawable/roundedstyle"
+            android:text="Profile"
+            tools:layout_editor_absoluteY="182dp" />
 
-            <Button
-                android:id="@+id/DarkMode"
-                android:layout_width="408dp"
-                android:layout_height="93dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/roundedstyle"
-                android:text="Dark Mode"
-                app:layout_constraintTop_toBottomOf="@+id/Metric"
-                tools:layout_editor_absoluteX="0dp" />
+        <Button
+            android:id="@+id/Notifications"
+            style="@style/TestStyle"
+            android:layout_width="408dp"
+            android:layout_height="91dp"
+            android:backgroud="@drawable/roundedstyle"
+            android:text="Notifications"
+            tools:layout_editor_absoluteY="273dp" />
 
-            <Button
-                android:id="@+id/Profile"
-                android:layout_width="408dp"
-                android:layout_height="93dp"
-                android:background="@drawable/roundedstyle"
-                android:text="Profile"
-                app:layout_constraintTop_toBottomOf="@+id/DarkMode"/>
+        <Button
+            android:id="@+id/BuildInfo"
+            android:layout_width="408dp"
+            android:layout_height="91dp"
+            android:backgroud="@drawable/roundedstyle"
+            android:text="Build Information"
+            tools:layout_editor_absoluteY="364dp" />
 
-            <Button
-                android:id="@+id/Notifications"
-                android:layout_width="408dp"
-                android:layout_height="93dp"
-                android:background="@drawable/roundedstyle"
-                android:text="Notifications"
-                app:layout_constraintTop_toBottomOf="@+id/Profile"/>
-
-            <Button
-                android:id="@+id/BuildInfo"
-                android:layout_width="408dp"
-                android:layout_height="93dp"
-                android:background="@drawable/roundedstyle"
-                android:text="Build Information"
-                app:layout_constraintTop_toBottomOf="@+id/Notifications"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="TestStyle">
+        <item name="android:background">#FF000000</item>
+        <item name="android:textColor">#ffffff</item>
+        <corners android:radius="20dp"/>
+    </style>
+</resources>
