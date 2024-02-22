@@ -17,6 +17,7 @@ import com.example.test.ui.login.LoginActivity
 import android.content.Intent
 import com.example.test.ui.settings.SettingsActivity
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -62,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
             R.id.action_settings -> {
-                val intent = Intent(this, SettingsActivity::class.java)
+                val intent = Intent(this,SettingsActivity::class.java)
                 startActivity(intent)
                 true
             }
