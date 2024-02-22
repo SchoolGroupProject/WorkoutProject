@@ -1,11 +1,24 @@
 <resources>
 
     <style name="Widget.Theme.Test.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
-    </style>
+       <item name="android:background">@color/black_overlay</item>
+   </style>
 
     <style name="Widget.Theme.Test.ButtonBar.Fullscreen" parent="">
         <item name="android:background">@color/black_overlay</item>
         <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    <style name="WhiteButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/white_button_background</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Style for button with black background and white text -->
+    <style name="BlackButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/black_button_background</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="SettingsActivityTheme" parent="Theme.Test">
+        <!-- Custom style overrides specifically for SettingsActivity -->
     </style>
 </resources>

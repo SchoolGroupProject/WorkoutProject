@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="frameLayout2" type="id" />
+    <item name="frameLayout" type="id" />
+    <item name="Metric" type="id" />
+    <item name="DarkMode" type="id" />
+    <item name="Profile" type="id" />
+    <item name="Notifications" type="id" />
+    <item name="BuildInfo" type="id" />
+</resources>
