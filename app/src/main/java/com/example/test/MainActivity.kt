@@ -14,8 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.test.databinding.ActivityMainBinding
 import com.google.common.base.FinalizableReference
 import com.google.firebase.Firebase
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+
 
 
 class MainActivity : AppCompatActivity() {
