@@ -2,50 +2,72 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wiSendToCalendar"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Spinner
-        android:id="@+id/spinner"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/wiWeightInput"
         android:layout_width="200dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="-50dp"
-        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
-        app:layout_constraintTop_toBottomOf="@+id/wiWorkoutPlanner" />
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/weight_if_applicable"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputEditText"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
 
     <TextView
-        android:id="@+id/wiWorkoutPlanner"
+        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/workout_planner"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/reps"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/wiRepsInput"
+        app:layout_constraintEnd_toEndOf="@+id/wiSets"
+        app:layout_constraintTop_toTopOf="@+id/wiRepsInput" />
 
     <TextView
-        android:id="@+id/wiWorkoutDay"
+        android:id="@+id/wiSets"
         android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/workout_day"
+        android:layout_height="wrap_content"
+        android:text="@string/sets"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="@+id/spinner"
-        tools:ignore="TextSizeCheck" />
+        app:layout_constraintBottom_toBottomOf="@+id/wiSetsInput"
+        app:layout_constraintEnd_toEndOf="@+id/wiWeight"
+        app:layout_constraintTop_toTopOf="@+id/wiSetsInput" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/textInputEditText"
         android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="-50dp"
         android:hint="@string/workout_type"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
         tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <EditText
+        android:id="@+id/wiSetsInput"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/amount_of_sets"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/wiWeightInput"
+        app:layout_constraintTop_toBottomOf="@+id/wiWeightInput" />
+
+    <EditText
+        android:id="@+id/wiRepsInput"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/amount_of_reps"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/wiSetsInput"
+        app:layout_constraintTop_toBottomOf="@+id/wiSetsInput" />
 
     <TextView
         android:id="@+id/wiWorkoutType"
@@ -54,8 +76,8 @@
         android:text="@string/workout_type"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutDay"
-        app:layout_constraintTop_toTopOf="@+id/textInputEditText" />
+        app:layout_constraintTop_toTopOf="@+id/textInputEditText"
+        tools:layout_editor_absoluteX="13dp" />
 
     <TextView
         android:id="@+id/wiWeight"
@@ -68,506 +90,49 @@
         app:layout_constraintTop_toTopOf="@+id/wiWeightInput" />
 
     <TextView
-        android:id="@+id/wiSets"
+        android:id="@+id/wiWorkoutPlanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sets"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/wiSetsInput"
-        app:layout_constraintEnd_toEndOf="@+id/wiWeight"
-        app:layout_constraintTop_toTopOf="@+id/wiSetsInput" />
+        android:layout_marginTop="16dp"
+        android:text="@string/workout_planner"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reps"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/wiRepsInput"
-        app:layout_constraintEnd_toEndOf="@+id/wiSets"
-        app:layout_constraintTop_toTopOf="@+id/wiRepsInput" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="201dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="568dp"
+        android:text="Send to Calendar"
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintTop_toBottomOf="@+id/wiWorkoutPlanner" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/wiWeightInput"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        android:hint="@string/weight_if_applicable"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputEditText"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
-
-    <Spinner
-        android:id="@+id/wiWeightType"
-        android:layout_width="48dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputEditText"
-        app:layout_constraintStart_toEndOf="@+id/wiWeightInput"
-        app:layout_constraintTop_toTopOf="@+id/wiWeightInput" />
-
-    <EditText
-        android:id="@+id/wiSetsInput"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/amount_of_sets"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/wiWeightType"
-        app:layout_constraintTop_toBottomOf="@+id/wiWeightInput" />
-
-    <EditText
-        android:id="@+id/wiRepsInput"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/amount_of_reps"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/wiSetsInput"
-        app:layout_constraintTop_toBottomOf="@+id/wiSetsInput" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:background="@color/colorGreen"
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="359dp"
+        android:layout_height="301dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
         app:layout_constraintStart_toStartOf="@+id/wiWorkoutPlanner"
-        app:layout_constraintTop_toBottomOf="@+id/wiRepsInput">
+        app:layout_constraintTop_toBottomOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="50dp"
+        android:text="<-"
+        app:layout_constraintEnd_toStartOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-        <TableRow android:background="@color/colorGreen">
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/col1"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                tools:ignore="TextContrastCheck" />
-
-            <TextView
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/col2"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                tools:ignore="TextContrastCheck" />
-
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/col3"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                tools:ignore="TextContrastCheck" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/col4"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                tools:ignore="TextContrastCheck" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/col5"
-                android:textColor="@android:color/white"
-                android:textSize="14sp"
-                tools:ignore="TextContrastCheck" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day1"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day2"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day3"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day4"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day5"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day6"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-
-        <TableRow
-            android:background="@android:color/white">
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/day7"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="85dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:text="@string/NA"
-                android:textColor="@android:color/black"
-                android:textSize="14sp" />
-        </TableRow>
-    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

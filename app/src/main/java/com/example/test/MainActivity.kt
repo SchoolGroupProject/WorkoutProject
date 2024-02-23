@@ -61,4 +61,5 @@ class MainActivity : AppCompatActivity() {
     val listDays = listOf("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
 
     val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listDays)
+
 }
