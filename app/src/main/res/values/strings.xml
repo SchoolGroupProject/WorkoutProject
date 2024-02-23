@@ -10,4 +10,41 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="workout_day">Workout Day</string>
+    <string name="workout_planner">Workout Planner</string>
+    <string name="workout_type">Workout Type</string>
+    <string name="weight">Weight</string>
+    <string name="sets">Sets</string>
+    <string name="reps">Reps</string>
+    <string name="weight_if_applicable">Weight (if applicable)</string>
+    <string name="amount_of_sets">Amount of Sets</string>
+    <string name="amount_of_reps">Amount of Reps</string>
+    <string name="col1">Day</string>
+    <string name="col2">Type</string>
+    <string name="col3">Weight</string>
+    <string name="col4">Sets</string>
+    <string name="col5">Reps</string>
+    <string name="day1">Sunday</string>
+    <string name="day2">Monday</string>
+    <string name="day3">Tuesday</string>
+    <string name="day4">Wednesday</string>
+    <string name="day5">Thursday</string>
+    <string name="day6">Friday</string>
+    <string name="day7">Saturday</string>
+    <string name="NA">N/A</string>
+
+    <string-array name="days">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+
+    <string-array name="weight">
+        <item>lbs</item>
+        <item>kgs</item>
+    </string-array>
 </resources>
