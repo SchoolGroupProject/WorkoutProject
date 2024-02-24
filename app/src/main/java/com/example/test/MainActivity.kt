@@ -3,6 +3,7 @@ package com.example.test
 import android.os.Bundle
 import android.view.Menu
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -45,6 +46,15 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        setContentView(R.layout.main_interface)
+
+        val mainWorkoutButton: ImageButton = findViewById(R.id.mainWorkoutButton)
+
+        mainWorkoutButton.setOnClickListener {
+            //val intent = Intent(main_interface, workout_interface::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
