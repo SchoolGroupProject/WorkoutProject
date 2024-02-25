@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/fullscreenBackgroundColor"
+    android:theme="@style/ThemeOverlay.Test.FullscreenContainer"
     tools:context=".ui.settings.SettingsActivity">
-
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,
@@ -25,63 +25,43 @@
 
         <Button
             android:id="@+id/Metric"
-            android:backgroundTint="@android:color/black"
-            android:textColor="@android:color/white"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:padding="8dp"
             android:layout_width="408dp"
             android:layout_height="91dp"
+            android:background="@drawable/roundedstyle"
             android:text="Metric"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/DarkMode"
-            android:backgroundTint="@android:color/white"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:padding="8dp"
             android:layout_width="408dp"
             android:layout_height="91dp"
+            android:background="@drawable/roundedstyle"
             android:text="Dark Mode"
             app:layout_constraintTop_toBottomOf="@+id/Metric" />
 
         <Button
             android:id="@+id/Profile"
-            android:backgroundTint="@android:color/black"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:padding="8dp"
-            android:textColor="@android:color/white"
             android:layout_width="408dp"
             android:layout_height="91dp"
+            android:background="@drawable/roundedstyle"
             android:text="Profile"
             app:layout_constraintTop_toBottomOf="@+id/DarkMode" />
 
         <Button
             android:id="@+id/Notifications"
-            android:backgroundTint="@android:color/white"
-            android:textColor="@android:color/black"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:padding="8dp"
             android:layout_width="408dp"
             android:layout_height="91dp"
+            android:background="@drawable/roundedstyle"
             android:text="Notifications"
             app:layout_constraintTop_toBottomOf="@+id/Profile" />
 
         <Button
             android:id="@+id/BuildInfo"
-            android:backgroundTint="@android:color/black"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
             android:layout_width="408dp"
             android:layout_height="91dp"
-            android:padding="8dp"
+            android:background="@drawable/roundedstyle"
             android:text="Build Information"
-            app:layout_constraintTop_toBottomOf="@+id/Notifications"
-            tools:layout_editor_absoluteX="1dp" />
+            tools:layout_editor_absoluteY="364dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
