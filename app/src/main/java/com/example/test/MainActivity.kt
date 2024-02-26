@@ -49,12 +49,16 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.main_interface)
 
-        val mainWorkoutButton: ImageButton = findViewById(R.id.mainWorkoutButton)
+        //val mainWorkoutInterface:
 
-        mainWorkoutButton.setOnClickListener {
+        //val mainWorkoutButton: android.widget.ImageButton = findViewById(R.id.mainWorkoutButton)
+
+        //mainWorkoutButton.setOnClickListener {
             //val intent = Intent(main_interface, workout_interface::class.java)
-            startActivity(intent)
-        }
+            //startActivity(intent)
+        //}
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
