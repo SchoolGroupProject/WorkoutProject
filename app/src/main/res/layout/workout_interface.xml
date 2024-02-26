@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/wiSendToCalendar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/wiWeightInput"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/weight_if_applicable"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textInputEditText"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reps"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/wiRepsInput"
+        app:layout_constraintEnd_toEndOf="@+id/wiSets"
+        app:layout_constraintTop_toTopOf="@+id/wiRepsInput" />
+
+    <TextView
+        android:id="@+id/wiSets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sets"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/wiSetsInput"
+        app:layout_constraintEnd_toEndOf="@+id/wiWeight"
+        app:layout_constraintTop_toTopOf="@+id/wiSetsInput" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/textInputEditText"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="-50dp"
+        android:hint="@string/workout_type"
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView"
+        tools:ignore="DuplicateSpeakableTextCheck" />
+
+    <EditText
+        android:id="@+id/wiSetsInput"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/amount_of_sets"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/wiWeightInput"
+        app:layout_constraintTop_toBottomOf="@+id/wiWeightInput" />
+
+    <EditText
+        android:id="@+id/wiRepsInput"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/amount_of_reps"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@+id/wiSetsInput"
+        app:layout_constraintTop_toBottomOf="@+id/wiSetsInput" />
+
+    <TextView
+        android:id="@+id/wiWorkoutType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/workout_type"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputEditText"
+        app:layout_constraintTop_toTopOf="@+id/textInputEditText"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <TextView
+        android:id="@+id/wiWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/weight"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/wiWeightInput"
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutType"
+        app:layout_constraintTop_toTopOf="@+id/wiWeightInput" />
+
+    <TextView
+        android:id="@+id/wiWorkoutPlanner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/workout_planner"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="201dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="568dp"
+        android:text="Send to Calendar"
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintTop_toBottomOf="@+id/wiWorkoutPlanner" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="359dp"
+        android:layout_height="301dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintStart_toStartOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintTop_toBottomOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="50dp"
+        android:text="Back"
+        app:layout_constraintEnd_toStartOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
