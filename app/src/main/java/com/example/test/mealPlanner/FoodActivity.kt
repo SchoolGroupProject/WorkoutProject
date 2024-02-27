@@ -20,7 +20,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class FoodActivity : AppCompatActivity(){
+class FoodActivity : MainActivity(){
 
     private lateinit var foodLayout : TabLayout
     private lateinit var foodPager : ViewPager2
@@ -30,7 +30,7 @@ class FoodActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         foodnavi = ActivityFoodBinding.inflate(layoutInflater)
         setContentView(foodnavi.root)
-
+        allocateActivityTitle("Meal Planner")
 
         foodLayout = findViewById(R.id.foodtab)
         foodPager = findViewById(R.id.foodviewpager)
