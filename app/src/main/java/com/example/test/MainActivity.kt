@@ -1,8 +1,12 @@
 package com.example.test
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.FrameLayout
+import androidx.appcompat.app.ActionBarDrawerToggle
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,41 +16,37 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
 import com.example.test.databinding.ActivityMainBinding
-import com.example.test.ui.login.LoginActivity
-import android.content.Intent
-import com.example.test.ui.settings.SettingsActivity
+import com.example.test.mealPlanner.FoodActivity
+import com.google.common.base.FinalizableReference
+import com.google.firebase.Firebase
 
 
-class MainActivity : AppCompatActivity() {
 
+open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun setContentView(view: View?) {
+        drawerLayout = layoutInflater.inflate(R.layout.activity_main,null) as DrawerLayout
+        val _container : FrameLayout = drawerLayout.findViewById(R.id.activityContainer)
+        _container.addView(view)
+        super.setContentView(drawerLayout)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val toolsBar:Toolbar = drawerLayout.findViewById(R.id.toolbar)
+        setSupportActionBar(toolsBar)
 
-        setSupportActionBar(binding.appBarMain.toolbar)
+        val navigationView: NavigationView = drawerLayout.findViewById(R.id.nav_view)
+        navigationView.setNavigationItemSelectedListener(this)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this,drawerLayout,toolsBar,R.string.menu_drawer_open,R.string.menu_drawer_close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,29 +55,23 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        drawerLayout.closeDrawer(GravityCompat.START)
+      when(item.itemId)
+      {
+          R.id.nav_home -> { val intent = Intent(this, Homepage::class.java)
+              startActivity(intent)}
+          R.id.nav_meal_planner -> {val intent = Intent(this, FoodActivity::class.java)
+          startActivity(intent)}
+
+      }
+        return false
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
-            R.id.action_settings -> {
-                val intent = Intent(this,SettingsActivity::class.java)
-                startActivity(intent)
-                true
-            }
-            R.id.action_login -> {
-                val intent = Intent(this,LoginActivity::class.java)
-                startActivity(intent)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+    protected fun allocateActivityTitle(title:String)
+    {
+        supportActionBar?.setTitle(title)
+
     }
-//    private fun openLogin(){
-//        val intent = Intent(this,LoginActivity::class.java)
-//        startActivity(intent)
-//    }
 
 }
