@@ -6,7 +6,9 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="meal_planner">Meal Planner</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
@@ -25,4 +27,16 @@
     <string name="title_activity_settings">Settings</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="Exercise">Exercise</string>
+    <string name="MealPlanner">MealPlanner</string>
+    <string name="Health">Health</string>
+    <string name="Calendar">Calendar</string>
+    <string name="weight_if_applicable">weight_if_applicable</string>
+    <string name="reps">reps</string>
+    <string name="sets">sets</string>
+    <string name="workout_type">workout_type</string>
+    <string name="amount_of_sets">amount_of_sets</string>
+    <string name="amount_of_reps">amount_of_reps</string>
+    <string name="weight">weight</string>
+    <string name="workout_planner">workout_planner</string>
 </resources>

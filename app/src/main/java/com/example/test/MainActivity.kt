@@ -1,34 +1,23 @@
 package com.example.test
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.ActionBarDrawerToggle
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import com.example.test.databinding.ActivityMainBinding
 import com.example.test.mealPlanner.FoodActivity
-import com.google.common.base.FinalizableReference
-import com.google.firebase.Firebase
 
 
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawerLayout: DrawerLayout
-    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun setContentView(view: View?) {
         drawerLayout = layoutInflater.inflate(R.layout.activity_main,null) as DrawerLayout
@@ -42,7 +31,7 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         val navigationView: NavigationView = drawerLayout.findViewById(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
 
-        val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this,drawerLayout,toolsBar,R.string.menu_drawer_open,R.string.menu_drawer_close)
+        val toggle: ActionBarDrawerToggle = ActionBarDrawerToggle(this,drawerLayout,toolsBar,R.string.drawer_open,R.string.drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 

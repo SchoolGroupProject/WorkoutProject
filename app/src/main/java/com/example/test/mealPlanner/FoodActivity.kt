@@ -1,22 +1,11 @@
 package com.example.test.mealPlanner
 
 import android.content.res.Resources.NotFoundException
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.test.MainActivity
 import com.example.test.R
 import com.example.test.databinding.ActivityFoodBinding
-import com.example.test.databinding.ActivityMainBinding
-import com.example.test.databinding.AppBarMainBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

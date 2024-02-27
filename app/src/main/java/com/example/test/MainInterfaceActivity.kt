@@ -1,5 +1,6 @@
 package com.example.test
 
-class MainInterfaceActivity {
+class MainInterfaceActivity{
+
      //setContentView(R.layout.main_interface)
 }

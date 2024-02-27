@@ -2,19 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mobile_navigation">
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
 
-    <activity
-        android:id="@+id/nav_meal_planner"
-        android:name="com.example.test.mealPlanner.FoodActivity"
-        android:label="@string/MealPlanner"
-        tools:layout="@layout/activity_food"
-        >
-    </activity>
+
     <activity
         android:id="@+id/nav_home"
         android:name="com.example.test.Homepage"
         android:label="activity_homepage"
         tools:layout="@layout/activity_homepage" />
+    <activity
+        android:id="@+id/nav_meal_planner"
+        android:name="com.example.test.mealPlanner.FoodActivity"
+        android:label="activity_food"
+        tools:layout="@layout/activity_food" />
 
 </navigation>
