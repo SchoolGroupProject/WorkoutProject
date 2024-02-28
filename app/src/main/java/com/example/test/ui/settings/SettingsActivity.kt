@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.test.R
 
 class SettingsActivity : AppCompatActivity() {
@@ -15,6 +16,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.DarkMode).setOnClickListener {
+            toggleDarkMode()
         }
 
         findViewById<Button>(R.id.Profile).setOnClickListener {
@@ -24,6 +26,27 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.BuildInfo).setOnClickListener {
+        }
+    }
+
+    private fun toggleDarkMode() {
+        val nightModeFlags =
+            resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK
+        when (nightModeFlags) {
+            android.content.res.Configuration.UI_MODE_NIGHT_YES -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                Toast.makeText(this, "Switched to Light Mode", Toast.LENGTH_SHORT).show()
+            }
+
+            android.content.res.Configuration.UI_MODE_NIGHT_NO -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Toast.makeText(this, "Switched to Dark Mode", Toast.LENGTH_SHORT).show()
+            }
+
+            android.content.res.Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                Toast.makeText(this, "Switched to Dark Mode", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
