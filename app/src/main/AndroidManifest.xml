@@ -28,6 +28,16 @@
             android:theme="@style/Theme.Test.NoActionBar"
             />
         <activity
+            android:name=".MainInterfaceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Test.NoActionBar"
+            />
+        <activity
+            android:name=".WorkoutInterfaceActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Test.NoActionBar"
+            />
+        <activity
             android:name=".Homepage"
             android:exported="true"
             android:theme="@style/Theme.Test.NoActionBar"

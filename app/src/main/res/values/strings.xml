@@ -32,11 +32,24 @@
     <string name="Health">Health</string>
     <string name="Calendar">Calendar</string>
     <string name="weight_if_applicable">weight_if_applicable</string>
-    <string name="reps">reps</string>
-    <string name="sets">sets</string>
-    <string name="workout_type">workout_type</string>
+    <string name="reps">Reps</string>
+    <string name="sets">Sets</string>
+    <string name="workout_type">Workout Type</string>
     <string name="amount_of_sets">amount_of_sets</string>
     <string name="amount_of_reps">amount_of_reps</string>
     <string name="weight">weight</string>
     <string name="workout_planner">workout_planner</string>
+    <string name="workout">Workout</string>
+    <string name="meal_plan">Meal Plan</string>
+    <string name="research">Research</string>
+    <string name="calendar">Calendar</string>
+    <string name="bench_press">Bench Press</string>
+    <string name="pounds">135 lbs</string>
+    <string name="number_reps">10 Reps</string>
+    <string name="number_sets">4 Sets</string>
+    <string name="today_workout">Today\'s Workout</string>
+    <string name="date">February 20th \, 2024</string>
+    <string name="today_meal_plan">Today\'s Meal Plan</string>
+    <string name="today_research">Today\'s Research</string>
+    <string name="headline">This is a really cool headline and breakthrough discovery that you have to see</string>
 </resources>

@@ -16,5 +16,15 @@
         android:name="com.example.test.mealPlanner.FoodActivity"
         android:label="activity_food"
         tools:layout="@layout/activity_food" />
+    <activity
+        android:id="@+id/main_interface"
+        android:name="com.example.test.MainInterfaceActivity"
+        android:label="MainInterfaceActivity"
+        tools:layout="@layout/main_interface"/>
+    <activity
+        android:id="@+id/workout_interface"
+        android:name="com.example.test.WorkoutInterfaceActivity"
+        android:label="WorkoutInterfaceActivity"
+        tools:layout="@layout/workout_interface"/>
 
 </navigation>
