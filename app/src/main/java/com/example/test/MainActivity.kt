@@ -16,6 +16,7 @@ import com.example.test.databinding.ActivityMainBinding
 import com.example.test.ui.login.LoginActivity
 import android.content.Intent
 import com.example.test.ui.settings.SettingsActivity
+import com.google.firebase.FirebaseApp
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
