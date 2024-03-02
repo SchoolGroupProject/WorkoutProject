@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageButton
+        android:id="@+id/MainResearch"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="35dp"
+        android:contentDescription="@string/workout"
+        android:src="@drawable/icons8_test_tube_50"
+        app:layout_constraintBottom_toTopOf="@+id/mainDate"
+        app:layout_constraintEnd_toStartOf="@+id/mainCalendar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/mainMealPlan"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="35dp"
+        android:src="@drawable/icons8_sandwich_with_fried_egg_50"
+        android:contentDescription="@string/meal_plan"
+        app:layout_constraintBottom_toTopOf="@+id/mainDate"
+        app:layout_constraintStart_toEndOf="@+id/mainWorkoutButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/mainWorkoutButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="35dp"
+        android:src="@drawable/icons8_weights_64__1_"
+        android:contentDescription="@string/research"
+        app:layout_constraintBottom_toTopOf="@+id/mainDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/mainCalendar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainDate"
+        android:contentDescription="@string/calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icons8_calendar_50" />
+
+    <TextView
+        android:id="@+id/mainWorkoutTypeText"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/bench_press"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/mainWorkoutPlanText"
+        app:layout_constraintTop_toBottomOf="@+id/mainWorkoutPlanText"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/mainWeightText"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="35dp"
+        android:text="@string/pounds"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/mainWorkoutTypeText"
+        app:layout_constraintTop_toTopOf="@+id/mainWorkoutTypeText"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/mainWorkoutReps"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="35dp"
+        android:text="@string/number_reps"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/mainWeightText"
+        app:layout_constraintTop_toTopOf="@+id/mainWorkoutTypeText"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/mainWorkoutSets"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="35dp"
+        android:text="@string/number_sets"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/mainWorkoutReps"
+        app:layout_constraintTop_toTopOf="@+id/mainWorkoutTypeText"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/mainWorkoutPlanText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/today_workout"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainDate" />
+
+    <TextView
+        android:id="@+id/mainDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:text="@string/date"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mainMealPlanText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/today_meal_plan"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/mainWorkoutPlanText"
+        app:layout_constraintTop_toBottomOf="@+id/mainWorkoutPlanText" />
+
+    <TextView
+        android:id="@+id/mainResearchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="@string/today_research"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/mainMealPlanText"
+        app:layout_constraintTop_toBottomOf="@+id/mainMealPlanText" />
+
+    <TextView
+        android:id="@+id/mainResearchHeadline"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/headline"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/mainCalendar"
+        app:layout_constraintStart_toStartOf="@+id/mainWorkoutButton"
+        app:layout_constraintTop_toBottomOf="@+id/mainResearchText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

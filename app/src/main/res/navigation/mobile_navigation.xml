@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/nav_home">
 
-    <fragment
+
+    <activity
         android:id="@+id/nav_home"
-        android:name="com.example.test.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.test.Homepage"
+        android:label="activity_homepage"
+        tools:layout="@layout/activity_homepage" />
+    <activity
+        android:id="@+id/nav_meal_planner"
+        android:name="com.example.test.mealPlanner.FoodActivity"
+        android:label="activity_food"
+        tools:layout="@layout/activity_food" />
+    <activity
+        android:id="@+id/main_interface"
+        android:name="com.example.test.MainInterfaceActivity"
+        android:label="MainInterfaceActivity"
+        tools:layout="@layout/main_interface"/>
+    <activity
+        android:id="@+id/workout_interface"
+        android:name="com.example.test.WorkoutInterfaceActivity"
+        android:label="WorkoutInterfaceActivity"
+        tools:layout="@layout/workout_interface"/>
 
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.test.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.test.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>
