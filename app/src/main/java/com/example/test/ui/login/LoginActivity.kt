@@ -13,7 +13,6 @@ import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import com.example.test.databinding.ActivityLogin2Binding
-
 import com.example.test.R
 
 class LoginActivity : AppCompatActivity() {

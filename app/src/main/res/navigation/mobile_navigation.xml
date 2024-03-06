@@ -7,7 +7,7 @@
 
 
     <activity
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_calendar"
         android:name="com.example.test.Homepage"
         android:label="activity_homepage"
         tools:layout="@layout/activity_homepage" />
@@ -17,12 +17,17 @@
         android:label="activity_food"
         tools:layout="@layout/activity_food" />
     <activity
-        android:id="@+id/main_interface"
+        android:id="@+id/nav_health"
+        android:name="com.example.test.Health.HealthActivity"
+        android:label="activity_health"
+        tools:layout="@layout/activity_health" />
+    <activity
+        android:id="@+id/nav_home"
         android:name="com.example.test.MainInterfaceActivity"
         android:label="MainInterfaceActivity"
         tools:layout="@layout/main_interface"/>
     <activity
-        android:id="@+id/workout_interface"
+        android:id="@+id/nav_exercise"
         android:name="com.example.test.WorkoutInterfaceActivity"
         android:label="WorkoutInterfaceActivity"
         tools:layout="@layout/workout_interface"/>
