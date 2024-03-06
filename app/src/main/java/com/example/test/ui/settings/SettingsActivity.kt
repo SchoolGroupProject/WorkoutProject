@@ -6,10 +6,15 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.Composable
+import com.example.test.ProfileActivity
 import com.example.test.R
-import com.example.test.ui.ProfileActivity
 
 class SettingsActivity : AppCompatActivity() {
+
+    var notificationsEnabled = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -26,6 +31,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.Notifications).setOnClickListener {
+            toggleNotifications()
         }
 
         findViewById<Button>(R.id.BuildInfo).setOnClickListener {
@@ -55,5 +61,11 @@ class SettingsActivity : AppCompatActivity() {
     private fun openProfile(){
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun toggleNotifications(){
+        notificationsEnabled = !notificationsEnabled
+        val message = if (notificationsEnabled) "Notifications turned on" else "Notifications turned off"
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
