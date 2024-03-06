@@ -1,11 +1,13 @@
 package com.example.test.ui.settings
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.test.R
+import com.example.test.ui.ProfileActivity
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +22,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.Profile).setOnClickListener {
+            openProfile()
         }
 
         findViewById<Button>(R.id.Notifications).setOnClickListener {
@@ -48,5 +51,9 @@ class SettingsActivity : AppCompatActivity() {
                 Toast.makeText(this, "Switched to Dark Mode", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    private fun openProfile(){
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
     }
 }
