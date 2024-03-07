@@ -29,7 +29,10 @@
             android:layout_height="91dp"
             android:background="@drawable/roundedstyle"
             android:text="Metric"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.055"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/DarkMode"
@@ -45,7 +48,8 @@
             android:layout_height="91dp"
             android:background="@drawable/roundedstyle"
             android:text="Profile"
-            app:layout_constraintTop_toBottomOf="@+id/DarkMode" />
+            app:layout_constraintTop_toBottomOf="@+id/DarkMode"
+            tools:layout_editor_absoluteX="1dp" />
 
         <Button
             android:id="@+id/Notifications"
@@ -61,7 +65,7 @@
             android:layout_height="91dp"
             android:background="@drawable/roundedstyle"
             android:text="Build Information"
-            tools:layout_editor_absoluteY="364dp" />
+            app:layout_constraintTop_toBottomOf="@+id/Metric" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

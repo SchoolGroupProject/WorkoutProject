@@ -14,11 +14,13 @@ import androidx.core.view.GravityCompat
 import com.example.test.mealPlanner.FoodActivity
 import com.example.test.ui.login.LoginActivity
 import com.example.test.ui.settings.SettingsActivity
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawerLayout: DrawerLayout
+    private val db = FirebaseFirestore.getInstance()
 
     override fun setContentView(view: View?) {
         drawerLayout = layoutInflater.inflate(R.layout.activity_main,null) as DrawerLayout

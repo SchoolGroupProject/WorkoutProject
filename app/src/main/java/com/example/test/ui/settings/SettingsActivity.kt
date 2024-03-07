@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
+import com.example.test.BuildInfoActivity
 import com.example.test.ProfileActivity
 import com.example.test.R
 
@@ -20,6 +21,9 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         findViewById<Button>(R.id.Metric).setOnClickListener {
+            /*Here's the game plan: we have a bool for metric and if it is true, the values inputed
+            * are as metric. If the button is pushed, it sets it to false and recalculates all values to their
+            * requisite Imperial values.*/
         }
 
         findViewById<Button>(R.id.DarkMode).setOnClickListener {
@@ -35,6 +39,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.BuildInfo).setOnClickListener {
+            openBuildInfo()
         }
     }
 
@@ -67,5 +72,9 @@ class SettingsActivity : AppCompatActivity() {
         notificationsEnabled = !notificationsEnabled
         val message = if (notificationsEnabled) "Notifications turned on" else "Notifications turned off"
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+    private fun openBuildInfo(){
+        val intent = Intent(this, BuildInfoActivity::class.java)
+        startActivity(intent)
     }
 }
