@@ -11,8 +11,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class HealthActivity : MainActivity() {
 
-    private lateinit var healthLayout:TabLayout
-    private lateinit var healthyPager: ViewPager2
     private lateinit var health_binding:ActivityHealthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,18 +18,6 @@ class HealthActivity : MainActivity() {
         health_binding = ActivityHealthBinding.inflate(layoutInflater)
         setContentView(health_binding.root)
         allocateActivityTitle("Health")
-
-        healthLayout = findViewById(R.id.healthsLayout)
-        healthyPager = findViewById(R.id.healthpager)
-        healthyPager.adapter = HealthAdapter(this)
-        TabLayoutMediator(healthLayout,healthyPager){
-            tab,index -> tab.text = when(index) {
-                0 -> {"Physical"}
-                1 -> {"Mental"}
-            else -> {throw NotFoundException("Position Not Found")}
-            }
-        }.attach()
-
 
 
     }

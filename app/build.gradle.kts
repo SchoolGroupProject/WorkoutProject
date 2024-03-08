@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")  version "4.4.1" apply true
+
 }
 
 android {
@@ -65,6 +66,9 @@ dependencies {
 
     implementation("com.google.firebase:firebase-bom:32.7.3")
     implementation("com.google.firebase:firebase-analytics-ktx:21.5.1")
+
+    implementation("com.diogobernardino:williamchart:3.10.1")
+
 
 }
 apply(plugin = "com.google.gms.google-services")
