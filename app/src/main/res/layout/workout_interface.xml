@@ -13,8 +13,8 @@
         android:layout_marginTop="14dp"
         android:hint="@string/weight_if_applicable"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/textInputEditText"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintEnd_toEndOf="@+id/wiWorkoutTypeInput"
+        app:layout_constraintTop_toBottomOf="@+id/wiWorkoutTypeInput" />
 
     <TextView
         android:id="@+id/textView8"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="@+id/wiSetsInput" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
+        android:id="@+id/wiWorkoutTypeInput"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="30dp"
@@ -75,8 +75,8 @@
         android:layout_height="wrap_content"
         android:text="@string/workout_type"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textInputEditText"
-        app:layout_constraintTop_toTopOf="@+id/textInputEditText"
+        app:layout_constraintBottom_toBottomOf="@+id/wiWorkoutTypeInput"
+        app:layout_constraintTop_toTopOf="@+id/wiWorkoutTypeInput"
         tools:layout_editor_absoluteX="13dp" />
 
     <TextView
@@ -93,7 +93,7 @@
         android:id="@+id/wiWorkoutPlanner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="@string/workout_planner"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,8 +102,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="201dp"
-        android:layout_height="61dp"
+        android:layout_width="188dp"
+        android:layout_height="49dp"
         android:layout_marginTop="568dp"
         android:text="Send to Calendar"
         app:layout_constraintEnd_toEndOf="@+id/wiWorkoutPlanner"
@@ -124,15 +124,15 @@
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="37dp"
+        android:layout_height="39dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="50dp"
         android:text="Back"
         app:layout_constraintEnd_toStartOf="@+id/wiWorkoutPlanner"
+        app:layout_constraintHorizontal_bias="0.764"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
