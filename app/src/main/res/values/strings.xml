@@ -54,4 +54,5 @@
     <string name="headline">This is a really cool headline and breakthrough discovery that you have to see</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_build_info">BuildInfoActivity</string>
+    <string name="title_activity_calendar">CalendarActivity</string>
 </resources>

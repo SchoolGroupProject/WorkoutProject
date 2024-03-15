@@ -1,6 +1,8 @@
 package com.example.test
 
+import CalendarFragment
 import android.content.Intent
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -80,6 +82,16 @@ open class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     {
         supportActionBar?.setTitle(title)
 
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, CalendarFragment())
+                .commit()
+        }
     }
 
 }
