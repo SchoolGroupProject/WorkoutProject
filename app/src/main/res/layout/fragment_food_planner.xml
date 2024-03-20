@@ -22,14 +22,16 @@
         android:id="@+id/SaveMeal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
         android:layout_marginBottom="30dp"
         android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood2"
+        android:completionThreshold="1"
+
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -50,8 +52,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood4"
+        android:completionThreshold="1"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -60,8 +63,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFood3" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood1"
+        android:completionThreshold="1"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -95,8 +99,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Quantity2" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood3"
+        android:completionThreshold="1"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -105,8 +110,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFood2" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood6"
+        android:completionThreshold="1"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -115,8 +121,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFood5" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood5"
+        android:completionThreshold="1"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -125,8 +132,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvFood4" />
 
-    <MultiAutoCompleteTextView
+    <AutoCompleteTextView
         android:id="@+id/tvFood7"
+        android:completionThreshold="1"
         android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="15dp"
@@ -170,5 +178,15 @@
         android:inputType="numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Quantity6" />
+
+    <Button
+        android:id="@+id/applydata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="30dp"
+        android:text="Apply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

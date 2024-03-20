@@ -8,9 +8,8 @@
 
     <TextView
         android:id="@+id/CaloriesText"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="50dp"
         android:gravity="center"
         android:text="Calories"
@@ -25,7 +24,6 @@
         android:id="@+id/CaloriesNum"
         android:layout_width="70dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/border"
         android:gravity="center"
@@ -39,7 +37,7 @@
         android:id="@+id/CaloriesIC"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="50dp"
         android:src="@drawable/ic_calories"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +47,7 @@
         android:id="@+id/SodiumIC"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_sodium"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +57,7 @@
         android:id="@+id/CarbsIC"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_carbs"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +67,7 @@
         android:id="@+id/FatsIC"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_fats"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +77,7 @@
         android:id="@+id/ProteinIC"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/ic_protein"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,9 +85,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="Sodium"
@@ -102,24 +99,22 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="Carbohydrate"
+        android:text="Carbs"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="33sp"
+        android:textSize="44sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/CarbsIC"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="Fats"
@@ -132,9 +127,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="220dp"
+        android:layout_width="170dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="Protein"
@@ -146,59 +140,66 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/SodiumNum"
         android:layout_width="70dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:text="3000"
         android:background="@drawable/border"
         android:gravity="center"
+        android:text="3000"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/CaloriesNum" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/FatsNum"
         android:layout_width="70dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:text="3000"
         android:background="@drawable/border"
         android:gravity="center"
+        android:text="3000"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/CarbsNum" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/CarbsNum"
         android:layout_width="70dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:text="3000"
         android:background="@drawable/border"
         android:gravity="center"
+        android:text="3000"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/SodiumNum" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/ProteinNum"
         android:layout_width="70dp"
         android:layout_height="60dp"
-        android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
-        android:text="3000"
         android:background="@drawable/border"
         android:gravity="center"
+        android:text="3000"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/FatsNum" />
+
+    <TextView
+        android:id="@+id/testingfun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

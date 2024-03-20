@@ -8,6 +8,7 @@ import com.example.test.R
 import com.example.test.databinding.ActivityFoodBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.firebase.database.FirebaseDatabase
 
 class FoodActivity : MainActivity(){
 
