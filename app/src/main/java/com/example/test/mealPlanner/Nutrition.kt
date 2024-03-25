@@ -80,16 +80,16 @@ class Nutrition {
 //new class for compiling
 class DataCompiler
 {
-    private var foodItemNamed:String = ""
+    private var foodItemNamed:Nutrition? = null
     private var foodQuantity:Int = 0
-    constructor(foodItemNamed: String, foodQuantity: Int) {
+    constructor(foodItemNamed: Nutrition, foodQuantity: Int) {
         this.foodItemNamed = foodItemNamed
         this.foodQuantity = foodQuantity
     }
 
-    fun getFoodName():String
+    fun getFood():Nutrition
     {
-        return foodItemNamed
+        return foodItemNamed!!
     }
 
     fun getFoodQuantity():Int
@@ -98,3 +98,4 @@ class DataCompiler
     }
 
 }
+

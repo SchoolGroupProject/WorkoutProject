@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class ShareFoodModel:ViewModel() {
 
+    //Data for the each of the 7 data tabs
     private var foodItem1 = MutableLiveData<DataCompiler>(null)
     val userFoodItem1:LiveData<DataCompiler> = foodItem1
     private var foodItem2 = MutableLiveData<DataCompiler>(null)
@@ -22,7 +23,8 @@ class ShareFoodModel:ViewModel() {
     val userFoodItem7:LiveData<DataCompiler> = foodItem7
 
 
-    fun saveUserFoodItem(number:Int,userData:DataCompiler){
+    //To change different data
+    fun saveUserFoodItem(number:Int, userData: DataCompiler){
 
         when(number)
         {

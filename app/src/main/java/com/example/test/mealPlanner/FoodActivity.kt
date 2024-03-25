@@ -2,6 +2,8 @@ package com.example.test.mealPlanner
 
 import android.content.res.Resources.NotFoundException
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.example.test.MainActivity
 import com.example.test.R
@@ -33,6 +35,8 @@ class FoodActivity : MainActivity(){
             }
         }.attach()
 
+
+        //sharedViewModel.fullReset()
 
     }
 
