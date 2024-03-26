@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
+import android.widget.Button
 import com.example.test.databinding.WorkoutInterfaceBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.FirebaseNetworkException
@@ -22,6 +23,7 @@ class WorkoutInterfaceActivity : MainActivity() {
     private lateinit var wiAmountOfWeight: EditText
     private lateinit var wiAmountOfSets: EditText
     private lateinit var wiAmountOfReps: EditText
+    private lateinit var wiSendToCalendar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +32,16 @@ class WorkoutInterfaceActivity : MainActivity() {
         initializeDbRef()
         initializeViews()
         allocateActivityTitle("Exercise")
+        wiSendToCalendar = findViewById(R.id.wiSendToCalendar)
+
+        wiWorkoutTypeName = findViewById(R.id.wiWorkoutTypeInput)
+        wiAmountOfWeight = findViewById(R.id.wiWeightInput)
+        wiAmountOfSets = findViewById(R.id.wiSetsInput)
+        wiAmountOfReps = findViewById(R.id.wiRepsInput)
+
+        wiSendToCalendar.setOnClickListener {
+            saveWorkoutData()
+        }
     }
 
     private fun initializeDbRef() {
@@ -70,10 +82,10 @@ class WorkoutInterfaceActivity : MainActivity() {
 
     //Saves the workout type
     private fun saveWorkoutData() {
-        val workoutTypeName = wiWorkoutTypeName.text.toString()
-        val amountOfWeight = wiAmountOfWeight.text.toString()
-        val amountOfSets = wiAmountOfSets.text.toString()
-        val amountOfReps = wiAmountOfReps.text.toString()
+        val workoutTypeName = wiWorkoutTypeName.text.toString().trim()
+        val amountOfWeight = wiAmountOfWeight.text.toString().trim()
+        val amountOfSets = wiAmountOfSets.text.toString().trim()
+        val amountOfReps = wiAmountOfReps.text.toString().trim()
 
         if (workoutTypeName.isEmpty()) {
             wiWorkoutTypeName.error = "Please enter workout name"
@@ -89,11 +101,15 @@ class WorkoutInterfaceActivity : MainActivity() {
         }
 
         val workoutId = database.push().key!!
+        if (workoutId.isEmpty()) {
+            Toast.makeText(this, "Failed to generate a unique ID", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val workout = WorkoutModel(workoutId, workoutTypeName, amountOfWeight, amountOfSets, amountOfReps)
 
         database.child(workoutId).setValue(workout)
-            .addOnCompleteListener{
+            .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
             }
             .addOnFailureListener{ err ->
