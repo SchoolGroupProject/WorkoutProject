@@ -1,46 +1,38 @@
-import android.content.Intent
+import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CalendarView
+import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import androidx.fragment.app.Fragment
-import com.example.test.AddPlanActivity
 import com.example.test.R
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.time.LocalDate
-import java.time.YearMonth
 import java.time.format.DateTimeFormatter
 
-// Imports remain the same
 
+data class DailyPlan(
+    val exercise: String,
+    val repetitions: String,
+    val meal: String
+)
 class CalendarFragment : Fragment() {
 
     private lateinit var calendarView: CalendarView
     private lateinit var infoView: TextView
     private lateinit var addPlanButton: Button
-    private var selectedDate: String = "" // Used for date selection
-    private var workouts = mutableListOf<WorkoutPlan>()
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    private var selectedDate: String = LocalDate.now().format(DateTimeFormatter.ISO_DATE)
+
+    // Use a map to associate each day with its plan
+    private val dailyPlans = mutableMapOf<String, DailyPlan>()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_calendar, container, false)
     }
 
@@ -48,74 +40,66 @@ class CalendarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         calendarView = view.findViewById(R.id.calendar)
-        infoView = view.findViewById(R.id.date_view)
+        infoView = view.findViewById(R.id.date_view) // This must happen before you use infoView
         addPlanButton = view.findViewById(R.id.addPlanButton)
 
+        initializeDefaultPlans()
+
+        // Display today's plan
+        displayPlanForDate(selectedDate)
+
         calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
-            selectedDate = "${year}-${(month + 1).toString().padStart(2, '0')}-${
-                dayOfMonth.toString().padStart(2, '0')
-            }"
-            fetchPlanForDate(selectedDate)
-        }
+            selectedDate = "$year-${month + 1}-$dayOfMonth"
+            displayPlanForDate(selectedDate)
 
-        addPlanButton.setOnClickListener {
-            addPlanForDate(selectedDate)
-        }
-
-        val currentYear = YearMonth.now().year
-        val currentMonth = YearMonth.now().monthValue
-        fetchMonthlyWorkouts(currentYear, currentMonth)
-    }
-
-
-    private fun addPlanForDate(date: String) {
-        val intent = Intent(activity, AddPlanActivity::class.java).apply {
-            putExtra("selectedDate", date)
-        }
-        startActivity(intent)
-    }
-
-    private fun fetchPlanForDate(date: String) {
-        val db = FirebaseFirestore.getInstance()
-        db.collection("workouts").document(date)
-            .get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    val workout = document.getString("workout") ?: "No workout planned"
-                    val mealPlan = document.getString("mealPlan") ?: "No meal plan set"
-                    infoView.text = "Workout: $workout\nMeal Plan: $mealPlan"
-                } else {
-                    Log.d("CalendarFragment", "No such document")
-                }
+            addPlanButton.setOnClickListener {
+                showAddPlanDialog()
             }
-            .addOnFailureListener { exception ->
-                Log.d("CalendarFragment", "get failed with ", exception)
-            }
-    }
 
+        }
+    }
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun fetchMonthlyWorkouts(year: Int, month: Int) {
-        val db = FirebaseFirestore.getInstance()
-        val startOfMonth = LocalDate.of(year, month, 1)
-        val endOfMonth = YearMonth.of(year, month).atEndOfMonth()
+    fun showAddPlanDialog() {
+        val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_add_plan, null)
+        val exerciseInput = dialogView.findViewById<EditText>(R.id.editTextExercise)
+        val repetitionsInput = dialogView.findViewById<EditText>(R.id.editTextRepetitions)
+        val mealInput = dialogView.findViewById<EditText>(R.id.editTextMeal)
 
-        db.collection("workouts")
-            .whereGreaterThanOrEqualTo("date", startOfMonth.format(DateTimeFormatter.ISO_DATE))
-            .whereLessThanOrEqualTo("date", endOfMonth.format(DateTimeFormatter.ISO_DATE))
-            .get()
-            .addOnSuccessListener { documents ->
-                for (document in documents) {
-                    val workoutPlan = document.toObject(WorkoutPlan::class.java)
-                    workouts.add(workoutPlan)
-                }
-                workouts.sortBy { it.date }
+        AlertDialog.Builder(context)
+            .setView(dialogView)
+            .setTitle("Add/Update Plan")
+            .setPositiveButton("Save") { _, _ ->
+                val exercise = exerciseInput.text.toString()
+                val repetitions = repetitionsInput.text.toString()
+                val meal = mealInput.text.toString()
+
+                updatePlanForDate(selectedDate, exercise, repetitions, meal)
+                displayPlanForDate(selectedDate) // Refresh the displayed plan
             }
-            .addOnFailureListener { exception ->
-                Log.w("CalendarFragment", "Error getting documents: ", exception)
-            }
+            .setNegativeButton("Cancel", null)
+            .create()
+            .show()
     }
-    data class WorkoutPlan(
-        var date: String = "",
-        var details: String = ""
-    )
+
+
+    private fun displayPlanForDate(date: String) {
+        dailyPlans[date]?.let {
+            infoView.text = "Exercise: ${it.exercise}\nRepetitions: ${it.repetitions}\nMeal: ${it.meal}"
+        } ?: run {
+            infoView.text = "No plan for this day"
+        }
+    }
+
+    // Default Plans
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun initializeDefaultPlans() {
+        val today = LocalDate.now().format(DateTimeFormatter.ISO_DATE)
+        dailyPlans[today] = DailyPlan("Push-ups", "10 reps", "Chicken Salad")
+        // Add more default plans as needed
+    }
+
+    // Method to update the plan for a specific day
+    fun updatePlanForDate(date: String, exercise: String, repetitions: String, meal: String) {
+        dailyPlans[date] = DailyPlan(exercise, repetitions, meal)
+    }
 }

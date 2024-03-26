@@ -1,0 +1,25 @@
+<!-- Example layout file: res/layout/dialog_add_plan.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextExercise"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Exercise" />
+
+    <EditText
+        android:id="@+id/editTextRepetitions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Repetitions" />
+
+    <EditText
+        android:id="@+id/editTextMeal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Meal" />
+</LinearLayout>
