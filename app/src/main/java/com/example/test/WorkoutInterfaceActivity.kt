@@ -2,6 +2,8 @@ package com.example.test
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.Toast
 import com.example.test.databinding.WorkoutInterfaceBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.FirebaseNetworkException
@@ -15,7 +17,11 @@ import com.google.firebase.database.ServerValue
 class WorkoutInterfaceActivity : MainActivity() {
 
     private lateinit var database: DatabaseReference //Initializes a database reference for Firebase
-    private lateinit var _binding : WorkoutInterfaceBinding //Binds the workout button on main interface with the workout interface
+    private lateinit var _binding: WorkoutInterfaceBinding //Binds the workout button on main interface with the workout interface
+    private lateinit var wiWorkoutTypeName: EditText
+    private lateinit var wiAmountOfWeight: EditText
+    private lateinit var wiAmountOfSets: EditText
+    private lateinit var wiAmountOfReps: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +33,7 @@ class WorkoutInterfaceActivity : MainActivity() {
     }
 
     private fun initializeDbRef() {
-        database = FirebaseDatabase.getInstance().reference
+        database = FirebaseDatabase.getInstance().getReference("Workouts")
     }
 
     private fun initializeViews() {
@@ -37,9 +43,9 @@ class WorkoutInterfaceActivity : MainActivity() {
 
     private lateinit var wiWorkoutTypeInputEditText: TextInputEditText
 
-    data class WorkoutData(val userId: String, val workoutName: String, val timestamp: Any)
+    /*data class WorkoutData(val userId: String, val workoutName: String, val timestamp: Any)*/
 
-    private fun writeWorkoutToFirebase(userId: String) {
+    /*private fun writeWorkoutToFirebase(userId: String) {
         val text = wiWorkoutTypeInputEditText.text.toString()
         val workoutData = WorkoutData(userId, text, ServerValue.TIMESTAMP)
 
@@ -51,15 +57,48 @@ class WorkoutInterfaceActivity : MainActivity() {
             .addOnFailureListener { e ->
                 Log.e("WorkoutInterface", "Error Writing workout data", e)
             }
-    }
+    }*/
 
-    private fun getUserId(): String {
+    /*private fun getUserId(): String {
         return "BillyG" //example user Id ** replace with logic to get the user Id on login
-    }
+    }*/
 
-    private fun writeToFirebase() {
+    /*private fun writeToFirebase() {
         val userId = getUserId()
         writeWorkoutToFirebase(userId)
+    }*/
+
+    //Saves the workout type
+    private fun saveWorkoutData() {
+        val workoutTypeName = wiWorkoutTypeName.text.toString()
+        val amountOfWeight = wiAmountOfWeight.text.toString()
+        val amountOfSets = wiAmountOfSets.text.toString()
+        val amountOfReps = wiAmountOfReps.text.toString()
+
+        if (workoutTypeName.isEmpty()) {
+            wiWorkoutTypeName.error = "Please enter workout name"
+        }
+        if (amountOfWeight.isEmpty()) {
+            wiAmountOfWeight.error = "Please enter the weight"
+        }
+        if (amountOfSets.isEmpty()) {
+            wiAmountOfReps.error = "Please enter amount of sets"
+        }
+        if (amountOfReps.isEmpty()) {
+            wiAmountOfSets.error = "Please enter amount of reps"
+        }
+
+        val workoutId = database.push().key!!
+
+        val workout = WorkoutModel(workoutId, workoutTypeName, amountOfWeight, amountOfSets, amountOfReps)
+
+        database.child(workoutId).setValue(workout)
+            .addOnCompleteListener{
+                Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
+            }
+            .addOnFailureListener{ err ->
+                Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
+            }
     }
 
     /*@IgnoreExtraProperties
@@ -72,6 +111,5 @@ class WorkoutInterfaceActivity : MainActivity() {
             activity.database.child("users").child(userId).setValue(user)
         }
     }*/
-
-    //Need to link the users login information with the creation of the new user so that they are logged into firebase and not hardcoded
 }
+

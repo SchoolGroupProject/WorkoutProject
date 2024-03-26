@@ -3,8 +3,9 @@ package com.example.test
 import android.os.Bundle
 import android.widget.ImageButton
 import android.content.Intent
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.test.databinding.MainInterfaceBinding
-import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -14,12 +15,21 @@ class MainInterfaceActivity : MainActivity() {
 
     private lateinit var _binding: MainInterfaceBinding
     private lateinit var database: DatabaseReference
+    private lateinit var mainWorkoutTypeText: TextView
+    private lateinit var mainWeightText: TextView
+    private lateinit var mainWorkoutReps: TextView
+    private lateinit var mainWorkoutSets: TextView
 
      override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
          _binding = MainInterfaceBinding.inflate(layoutInflater)
          setContentView(_binding.root)
          allocateActivityTitle("Home")
+         mainWorkoutTypeText = findViewById(R.id.mainWorkoutTypeText)
+         mainWeightText = findViewById(R.id.mainWeightText)
+         mainWorkoutReps = findViewById(R.id.mainWorkoutReps)
+         mainWorkoutSets = findViewById(R.id.mainWorkoutSets)
+         initializeDbRef()
 
          val workoutButton: ImageButton = findViewById(R.id.mainWorkoutButton)
 
@@ -28,10 +38,22 @@ class MainInterfaceActivity : MainActivity() {
              startActivity(intent)
          }
 
-         database = FirebaseDatabase.getInstance().reference.child("users")
+         /*val userId = "tempUserId"
+         readUserData(userId) { user ->
+             if (user != null) {
+                 updateWorkoutType(user.username ?: "")
+             }
+             else {
+                 //solve any data related issues
+             }
+         }*/
      }
 
-    data class User(val username: String? = null, val email: String? = null)
+    private fun initializeDbRef() {
+        database = FirebaseDatabase.getInstance().getReference("Workouts")
+    }
+
+    /*data class User(val username: String? = null, val email: String? = null)
     fun readUserData(userId: String, callback: (User?) -> Unit) {
         val userRef = database.child(userId)
 
@@ -45,5 +67,9 @@ class MainInterfaceActivity : MainActivity() {
                 callback(null)
             }
         })
+    }*/
+
+    private fun updateWorkoutType(workoutType: String) {
+
     }
 }
