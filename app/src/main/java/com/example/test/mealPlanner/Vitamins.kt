@@ -216,23 +216,3 @@ class Vitamins : Fragment(R.layout.fragment_vitamins){
     }
 
 }
-
-
-/* Used to add information to the firebase */
-// testingbutton1!!.setOnClickListener (object : View.OnClickListener{
-// override fun onClick(view: View?){
-// clouddatabase.push().setValue(Test)
-//
-// }
-// })
-// testingbutton1!!.setOnClickListener{
-// clouddatabase.push().setValue(Test)
-// testingTextView?.text = extractData?.getString("FirstTextComplete")
-// }
-
-
-//============== Add Data To The Database ================
-//private val Test = Nutrition("ChangeforListner",0,0,0,0,0)
-//private var cloudfirebase:FirebaseDatabase = Firebase.database
-//private var clouddatabase:DatabaseReference = cloudfirebase.getReference("/Foods/Test")
-//========================================================

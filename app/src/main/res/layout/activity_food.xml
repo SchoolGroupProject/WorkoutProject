@@ -52,7 +52,7 @@
         app:srcCompat="@drawable/ic_planner" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/calendarfoodbutton"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
