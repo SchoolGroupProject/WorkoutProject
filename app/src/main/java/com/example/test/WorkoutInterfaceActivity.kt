@@ -55,31 +55,6 @@ class WorkoutInterfaceActivity : MainActivity() {
 
     private lateinit var wiWorkoutTypeInputEditText: TextInputEditText
 
-    /*data class WorkoutData(val userId: String, val workoutName: String, val timestamp: Any)*/
-
-    /*private fun writeWorkoutToFirebase(userId: String) {
-        val text = wiWorkoutTypeInputEditText.text.toString()
-        val workoutData = WorkoutData(userId, text, ServerValue.TIMESTAMP)
-
-        val workoutRef = database.child("workouts").push()
-        workoutRef.setValue(workoutData)
-            .addOnSuccessListener {
-                Log.d("WorkoutInterface", "Workout data written successfully")
-            }
-            .addOnFailureListener { e ->
-                Log.e("WorkoutInterface", "Error Writing workout data", e)
-            }
-    }*/
-
-    /*private fun getUserId(): String {
-        return "BillyG" //example user Id ** replace with logic to get the user Id on login
-    }*/
-
-    /*private fun writeToFirebase() {
-        val userId = getUserId()
-        writeWorkoutToFirebase(userId)
-    }*/
-
     //Saves the workout type
     private fun saveWorkoutData() {
         val workoutTypeName = wiWorkoutTypeName.text.toString().trim()
@@ -105,8 +80,9 @@ class WorkoutInterfaceActivity : MainActivity() {
             Toast.makeText(this, "Failed to generate a unique ID", Toast.LENGTH_SHORT).show()
             return
         }
+        val workoutDate = "March 28th, 2024"
 
-        val workout = WorkoutModel(workoutId, workoutTypeName, amountOfWeight, amountOfSets, amountOfReps)
+        val workout = WorkoutModel(workoutId, workoutDate, workoutTypeName, amountOfWeight, amountOfSets, amountOfReps)
 
         database.child(workoutId).setValue(workout)
             .addOnCompleteListener {
@@ -116,16 +92,5 @@ class WorkoutInterfaceActivity : MainActivity() {
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
             }
     }
-
-    /*@IgnoreExtraProperties
-    data class User(val username: String? = null, val email: String? = null) {
-        fun writeNewUser(userId: String, name: String, email: String) {
-            val activity = WorkoutInterfaceActivity()
-            activity.initializeDbRef()
-
-            val user = User(name, email)
-            activity.database.child("users").child(userId).setValue(user)
-        }
-    }*/
 }
 
