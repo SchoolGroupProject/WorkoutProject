@@ -52,7 +52,6 @@ class MainInterfaceActivity : MainActivity() {
          val workoutId = sharedPreferences.getString("WORKOUT_ID", "")
 
          readData(workoutId.toString())
-         //updateWorkout()
      }
 
     private fun initializeDbRef() {
