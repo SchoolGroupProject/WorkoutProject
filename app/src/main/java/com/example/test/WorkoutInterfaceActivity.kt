@@ -1,5 +1,6 @@
 package com.example.test
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
@@ -40,8 +41,11 @@ class WorkoutInterfaceActivity : MainActivity() {
         wiAmountOfReps = findViewById(R.id.wiRepsInput)
 
         wiSendToCalendar.setOnClickListener {
-            saveWorkoutData()
+            val workoutId = saveWorkoutData()
+            val sharedPreferences = getSharedPreferences("WorkoutPrefs", Context.MODE_PRIVATE)
+            sharedPreferences.edit().putString("WORKOUT_ID", workoutId).apply()
         }
+
     }
 
     private fun initializeDbRef() {
@@ -56,7 +60,7 @@ class WorkoutInterfaceActivity : MainActivity() {
     private lateinit var wiWorkoutTypeInputEditText: TextInputEditText
 
     //Saves the workout type
-    private fun saveWorkoutData() {
+    private fun saveWorkoutData(): String? {
         val workoutTypeName = wiWorkoutTypeName.text.toString().trim()
         val amountOfWeight = wiAmountOfWeight.text.toString().trim()
         val amountOfSets = wiAmountOfSets.text.toString().trim()
@@ -78,7 +82,7 @@ class WorkoutInterfaceActivity : MainActivity() {
         val workoutId = database.push().key!!
         if (workoutId.isEmpty()) {
             Toast.makeText(this, "Failed to generate a unique ID", Toast.LENGTH_SHORT).show()
-            return
+            return null
         }
         val workoutDate = "March 28th, 2024"
 
@@ -91,6 +95,7 @@ class WorkoutInterfaceActivity : MainActivity() {
             .addOnFailureListener{ err ->
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
             }
+        return workoutId
     }
 }
 

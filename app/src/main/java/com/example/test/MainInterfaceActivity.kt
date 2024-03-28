@@ -1,11 +1,13 @@
 package com.example.test
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.ImageButton
 import android.content.Intent
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.Modifier
 import androidx.recyclerview.widget.RecyclerView
 import com.example.test.databinding.MainInterfaceBinding
@@ -41,14 +43,15 @@ class MainInterfaceActivity : MainActivity() {
 
          val workoutDate : String = "March 28th, 2024"
 
-         if (workoutDate.isNotEmpty()) {
-             readData(workoutDate)
-         }
-
          workoutButton.setOnClickListener {
-             val intent = Intent(this, WorkoutInterfaceActivity::class.java)
+             val buttonIntent = Intent(this, WorkoutInterfaceActivity::class.java)
              startActivity(intent)
          }
+
+         val sharedPreferences = this.getSharedPreferences("WorkoutPrefs", Context.MODE_PRIVATE)
+         val workoutId = sharedPreferences.getString("WORKOUT_ID", "")
+
+         readData(workoutId.toString())
          //updateWorkout()
      }
 
@@ -71,14 +74,15 @@ class MainInterfaceActivity : MainActivity() {
         })
     }*/
 
-    private fun readData(workoutDate: String) {
-        database.child(workoutDate).get().addOnSuccessListener {
+    private fun readData(workoutId: String) {
+        database.child(workoutId).get().addOnSuccessListener {
             if (it.exists()) {
                 val workoutType = it.child("workoutTypeName").value
                 val weight = it.child("amountOfWeight").value
                 val sets = it.child("amountOfSets").value
                 val reps = it.child("amountOfReps").value
-                updateWorkout(workoutDate.toString(), workoutType.toString(), weight.toString(), sets.toString(), reps.toString())
+                val workoutDate = "March 28th, 2024"
+                updateWorkout(workoutDate, workoutType.toString(), weight.toString(), sets.toString(), reps.toString())
             }
             else {
                 Toast.makeText(this, "Date has no workout associated with it", Toast.LENGTH_SHORT).show()
@@ -90,8 +94,8 @@ class MainInterfaceActivity : MainActivity() {
     }
 
     private fun updateWorkout(workoutDate: String, workoutTypeName: String, amountOfWeight: String, amountOfSets: String, amountOfReps: String) {
-        mainDate.text = workoutDate
-        mainWorkoutTypeText.text = workoutTypeName
+        _binding.mainDate.text = workoutDate
+        _binding.mainWorkoutTypeText.text = workoutTypeName
         mainWeightText.text = amountOfWeight
         mainWorkoutSets.text = amountOfSets
         mainWorkoutReps.text = amountOfReps
